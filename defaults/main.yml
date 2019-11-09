@@ -1,2 +1,3 @@
 ---
 microsoft_mirror: https://packages.microsoft.com/repos/azure-cli/ 
+azure_cli_pkg: azure-cli

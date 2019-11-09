@@ -2,6 +2,4 @@
 rpm_key_url: https://packages.microsoft.com/keys/microsoft.asc
 rpm_base_url: https://packages.microsoft.com/yumrepos/azure-cli
 rpm_repo_description: Microsoft yum repo
-
-azure_cli_pkgs:
-  - azure-cli
+rpm_repo_name: azure-cli

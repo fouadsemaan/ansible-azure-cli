@@ -8,7 +8,7 @@
 
 - name: add yum repo
   yum_repository:
-    name: azure-cli 
+    name: '{{rpm_repo_name}}' 
     description: '{{rpm_repo_description}}'
     baseurl: '{{rpm_base_url}}'
     enabled: yes

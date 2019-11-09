@@ -26,10 +26,9 @@
       become: yes
       become_user: root
 
-- name: pkgs...
+- name: installing azure-cli package 
   become: yes
   become_user: root
-  with_items: '{{ azure_cli_pkgs }}'
   package:
-    name: '{{ item }}'
+    name: '{{azure_cli_pkg}}'
     state: present

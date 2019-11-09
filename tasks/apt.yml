@@ -1,4 +1,12 @@
 ---
+- name: pkgs...
+  become: yes
+  become_user: root
+  with_items: '{{ azure_cli_pkgs }}'
+  package:
+    name: '{{ item }}'
+    state: present
+
 - name: add microsoft apt key
   become: yes
   become_user: root
