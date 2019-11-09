@@ -1,0 +1,15 @@
+---
+- name: add microsoft apt key
+  become: yes
+  become_user: root
+  apt_key:
+    url: '{{ apt_key_url }}'
+    keyring: '{{ apt_key_keyring }}'
+
+- name: add microsoft apt repository
+  become: yes
+  become_user: root
+  apt_repository:
+    repo: '{{ microsoft_apt_repo }}'
+    update_cache: yes
+

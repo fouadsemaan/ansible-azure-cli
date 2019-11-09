@@ -1,0 +1,16 @@
+---
+- name: add microsoft rpm key
+  become: yes
+  become_user: root
+  rpm_key:
+    state: present
+    key: '{{rpm_key_url}}'
+
+- name: add microsoft yum repo
+  yum_repository:
+    name: azure-cli 
+    description: "Microsoft YUM repo"
+    baseurl: '{{rpm_base_url}}'
+    enabled: yes
+    gpgcheck: yes
+    gpgkey: '{{rpm_key_url}}'

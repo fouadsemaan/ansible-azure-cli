@@ -1,0 +1,35 @@
+---
+- name: resolve platform specific vars
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      skip: true
+      paths:
+        - '{{ role_path }}/vars'
+
+- name: (Debian) configuring apt....
+  when: ansible_os_family == "Debian"
+  include_tasks:
+    file: apt.yml
+    apply:
+      become: yes
+      become_user: root
+
+- name: (Redhat) configuring yum....
+  when: ansible_os_family == "RedHat"
+  include_tasks:
+    file: yum.yml
+    apply:
+      become: yes
+      become_user: root
+
+- name: pkgs...
+  become: yes
+  become_user: root
+  with_items: '{{ azure_cli_pkgs }}'
+  package:
+    name: '{{ item }}'
+    state: present
