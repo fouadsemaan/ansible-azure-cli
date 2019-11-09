@@ -1,6 +1,8 @@
 fouadsemaan.azure-cli
 =========
 
+Role to install azure-cli: https://github.com/Azure/azure-cli 
+
 Requirements
 ------------
 
