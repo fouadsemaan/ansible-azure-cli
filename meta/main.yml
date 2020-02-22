@@ -28,6 +28,7 @@ galaxy_info:
       versions:
         - xenial
         - bionic
+  role_name: azurecli
 
   galaxy_tags:
     - development
